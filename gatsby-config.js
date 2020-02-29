@@ -1,13 +1,17 @@
 require(`dotenv`).config({
-  path: `.env`,
+  path: `.env.*`,
 })
 
 module.exports = {
   siteMetadata: {
-    // You can overwrite values here that are used for the SEO component
-    // Of course you can also add new values here to query them like usual
-    // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-cara/gatsby-config.js
-    siteTitleAlt: `Cara - Gatsby Starter Portfolio`,
+      siteTitle: "Ian Napier Portfolio",
+      siteTitleAlt: "Ian Napier Portfolio",
+      siteHeadline: "Meet Ian Napier",
+      siteUrl: "https://www.ian-napier.com/",
+      siteDescription: "Portfolio for Ian Napier",
+      siteLanguage: "English",
+      siteImage: "./static/judgment.jpg",
+      author: "Ian Napier",
   },
   plugins: [
     {
@@ -24,9 +28,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Cara - @lekoarts/gatsby-theme-cara`,
-        short_name: `Cara`,
-        description: `Playful and Colorful One-Page portfolio featuring Parallax effects and animations`,
+        name: `IanNapier`,
+        short_name: `Ian`,
+        description: `Ian Napier`,
         start_url: `/`,
         background_color: `#141821`,
         theme_color: `#f6ad55`,
@@ -46,6 +50,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: "ian-napier-portfolio",
+      },
+    },
   ],
 }
